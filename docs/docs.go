@@ -35,6 +35,22 @@ const docTemplate = `{
                 "tags": [
                     "blog"
                 ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "model",
+                        "name": "take",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "model",
+                        "name": "skip",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -46,6 +62,36 @@ const docTemplate = `{
                         }
                     }
                 }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "blog"
+                ],
+                "parameters": [
+                    {
+                        "description": "model",
+                        "name": "model",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Blog"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Blog"
+                        }
+                    }
+                }
             }
         }
     },
@@ -53,14 +99,14 @@ const docTemplate = `{
         "models.Blog": {
             "type": "object",
             "properties": {
+                "author": {
+                    "type": "string"
+                },
                 "content": {
                     "type": "string"
                 },
                 "id": {
-                    "type": "string"
-                },
-                "releaseDate": {
-                    "type": "string"
+                    "type": "integer"
                 },
                 "title": {
                     "type": "string"

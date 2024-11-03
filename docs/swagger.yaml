@@ -2,12 +2,12 @@ basePath: /api/v1
 definitions:
   models.Blog:
     properties:
+      author:
+        type: string
       content:
         type: string
       id:
-        type: string
-      releaseDate:
-        type: string
+        type: integer
       title:
         type: string
     type: object
@@ -29,6 +29,17 @@ paths:
     get:
       consumes:
       - application/json
+      parameters:
+      - description: model
+        in: query
+        name: take
+        required: true
+        type: integer
+      - description: model
+        in: query
+        name: skip
+        required: true
+        type: integer
       produces:
       - application/json
       responses:
@@ -38,6 +49,25 @@ paths:
             items:
               $ref: '#/definitions/models.Blog'
             type: array
+      tags:
+      - blog
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: model
+        in: body
+        name: model
+        required: true
+        schema:
+          $ref: '#/definitions/models.Blog'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Blog'
       tags:
       - blog
 swagger: "2.0"

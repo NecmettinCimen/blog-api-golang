@@ -2,10 +2,13 @@ package main
 
 import (
 	"blog-api-golang/api"
+	"blog-api-golang/database"
 	_ "blog-api-golang/docs"
+	"blog-api-golang/models"
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
+	"log"
 )
 
 //	@title			Blog Api Golang
@@ -23,12 +26,16 @@ import (
 // @host		localhost:8080
 // @BasePath	/api/v1
 func main() {
+	db := database.ConnectPostgres()
+
+	err := db.AutoMigrate(&models.Blog{})
+	if err != nil {
+		log.Fatal(err)
+	}
 	r := gin.New()
 
 	// use ginSwagger middleware to serve the API docs
-	url := ginSwagger.URL("http://localhost:8080/swagger/doc.json") // The url pointing to API definition
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
-	r.GET("/api/v1/blog", api.GetBlogList)
-
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	api.SetRoutes(r)
 	r.Run()
 }
