@@ -3,16 +3,19 @@ package blog
 import (
 	"blog-api-golang/database"
 	"blog-api-golang/models"
+	"github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )
 
-func SetRoutes(r *gin.Engine) {
+func BlogApiSetRoutes(r *gin.Engine, authMiddleware *jwt.GinJWTMiddleware) {
 	r.GET("/api/v1/blog", GetBlogList)
-	r.POST("/api/v1/blog", CreatBlog)
-	r.PUT("/api/v1/blog", UpdateBlog)
-	r.DELETE("/api/v1/blog", DeleteBlog)
 
+	auth := r.Group("").Use(authMiddleware.MiddlewareFunc())
+
+	auth.POST("/api/v1/blog", CreatBlog)
+	auth.PUT("/api/v1/blog", UpdateBlog)
+	auth.DELETE("/api/v1/blog", DeleteBlog)
 }
 
 // GetBlogList example
@@ -56,7 +59,7 @@ func GetBlogList(c *gin.Context) {
 //		@Accept			json
 //		@Produce		json
 //		@Tags         	blog
-//		@Router			/blog [put]
+//		@Router			/blog [post]
 //	 	@Param			model body models.Blog true "model"
 //		@Success		200 {object} models.Blog
 func CreatBlog(c *gin.Context) {
@@ -75,7 +78,7 @@ func CreatBlog(c *gin.Context) {
 //		@Accept			json
 //		@Produce		json
 //		@Tags         	blog
-//		@Router			/blog [delete]
+//		@Router			/blog [put]
 //	 	@Param			model body models.Blog true "model"
 //		@Success		200 {object} models.Blog
 func UpdateBlog(c *gin.Context) {
@@ -94,7 +97,7 @@ func UpdateBlog(c *gin.Context) {
 //		@Accept			json
 //		@Produce		json
 //		@Tags         	blog
-//		@Router			/blog [post]
+//		@Router			/blog [delete]
 //	 	@Param			model body models.Blog true "model"
 //		@Success		200 {object} models.Blog
 func DeleteBlog(c *gin.Context) {

@@ -11,6 +11,13 @@ definitions:
       title:
         type: string
     type: object
+  models.Login:
+    properties:
+      password:
+        type: string
+      userName:
+        type: string
+    type: object
 host: localhost:8080
 info:
   contact:
@@ -108,4 +115,30 @@ paths:
             $ref: '#/definitions/models.Blog'
       tags:
       - blog
+  /login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: model
+        in: body
+        name: model
+        required: true
+        schema:
+          $ref: '#/definitions/models.Login'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Login'
+      tags:
+      - auth
+securityDefinitions:
+  ApiKeyAuth:
+    description: Description for what is this security definition being used
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"
