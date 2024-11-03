@@ -1,4 +1,4 @@
-package api
+package blog
 
 import (
 	"blog-api-golang/database"
@@ -10,6 +10,8 @@ import (
 func SetRoutes(r *gin.Engine) {
 	r.GET("/api/v1/blog", GetBlogList)
 	r.POST("/api/v1/blog", CreatBlog)
+	r.PUT("/api/v1/blog", UpdateBlog)
+	r.DELETE("/api/v1/blog", DeleteBlog)
 
 }
 
@@ -54,7 +56,7 @@ func GetBlogList(c *gin.Context) {
 //		@Accept			json
 //		@Produce		json
 //		@Tags         	blog
-//		@Router			/blog [post]
+//		@Router			/blog [put]
 //	 	@Param			model body models.Blog true "model"
 //		@Success		200 {object} models.Blog
 func CreatBlog(c *gin.Context) {
@@ -65,13 +67,43 @@ func CreatBlog(c *gin.Context) {
 
 	result := db.Create(&body)
 
-	response := struct {
-		Result interface{}
-		Body   models.Blog
-	}{
-		Result: result,
-		Body:   body,
-	}
+	c.IndentedJSON(200, result)
+}
 
-	c.IndentedJSON(200, response)
+// UpdateBlog example
+//
+//		@Accept			json
+//		@Produce		json
+//		@Tags         	blog
+//		@Router			/blog [delete]
+//	 	@Param			model body models.Blog true "model"
+//		@Success		200 {object} models.Blog
+func UpdateBlog(c *gin.Context) {
+	var body models.Blog
+	c.BindJSON(&body)
+
+	db := database.ConnectPostgres()
+
+	result := db.Updates(&body)
+
+	c.IndentedJSON(200, result)
+}
+
+// DeleteBlog example
+//
+//		@Accept			json
+//		@Produce		json
+//		@Tags         	blog
+//		@Router			/blog [post]
+//	 	@Param			model body models.Blog true "model"
+//		@Success		200 {object} models.Blog
+func DeleteBlog(c *gin.Context) {
+	var body models.Blog
+	c.BindJSON(&body)
+
+	db := database.ConnectPostgres()
+
+	result := db.Delete(&body)
+
+	c.IndentedJSON(200, result)
 }

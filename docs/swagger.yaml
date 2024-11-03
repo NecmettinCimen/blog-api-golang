@@ -26,6 +26,25 @@ info:
   version: "1.0"
 paths:
   /blog:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: model
+        in: body
+        name: model
+        required: true
+        schema:
+          $ref: '#/definitions/models.Blog'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Blog'
+      tags:
+      - blog
     get:
       consumes:
       - application/json
@@ -52,6 +71,25 @@ paths:
       tags:
       - blog
     post:
+      consumes:
+      - application/json
+      parameters:
+      - description: model
+        in: body
+        name: model
+        required: true
+        schema:
+          $ref: '#/definitions/models.Blog'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Blog'
+      tags:
+      - blog
+    put:
       consumes:
       - application/json
       parameters:

@@ -36,6 +36,6 @@ func main() {
 
 	// use ginSwagger middleware to serve the API docs
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-	api.SetRoutes(r)
+	blog.SetRoutes(r)
 	r.Run()
 }
