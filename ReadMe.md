@@ -22,7 +22,7 @@
     <a href="https://github.com/necmettincimen/blog-api-golang"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/necmettincimen/blog-api-golang">View Demo</a>
+    <a href="https://blog-api-golang.necmettincimen.xyz/swagger/index.html">View Demo</a>
     ·
     <a href="https://github.com/necmettincimen/blog-api-golang/issues">Report Bug</a>
     ·
@@ -159,7 +159,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@Necmettin Cimen](https://necmettin.me) - [necmettin.dev@gmail.com](necmettin.dev@gmail.com)
+Your Name - [@Necmettin Cimen](https://necmettincimen.xyz) - [necmettin.dev@gmail.com](necmettin.dev@gmail.com)
 
 Project Link: [https://github.com/necmettincimen/blog-api-golang](https://github.com/necmettincimen/blog-api-golang)
 
