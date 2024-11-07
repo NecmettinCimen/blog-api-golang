@@ -43,6 +43,6 @@ func login(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"token": tokenStr})
 
 	} else {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "User already exists"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Username or Password error"})
 	}
 }

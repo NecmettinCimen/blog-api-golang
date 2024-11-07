@@ -2,20 +2,13 @@ version: '3'
 
 services:
   web:
+    container_name: blog-api-golang
     build:
       context: .
     ports:
       - 8081:8080
-    depends_on:
-      - database
-  database:
-    container_name: postgres
-    image: 'postgres:latest'
 
-    ports:
-      - 5432:5432
 
-    environment:
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: default_database
+networks:
+  default:
+      name: srvnecmettin
