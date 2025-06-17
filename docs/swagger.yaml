@@ -21,9 +21,9 @@ definitions:
 host: localhost:8080
 info:
   contact:
-    email: mail@necmettincimen.com.tr
+    email: necmettin.dev@gmail.com
     name: API Support
-    url: https://necmettincimen.com.tr
+    url: https://necmettincimen.github.io
   description: This is a sample go server blog api.
   license:
     name: Apache 2.0

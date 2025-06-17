@@ -12,8 +12,8 @@ const docTemplate = `{
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "API Support",
-            "url": "https://necmettincimen.com.tr",
-            "email": "mail@necmettincimen.com.tr"
+            "url": "https://necmettincimen.github.io",
+            "email": "necmettin.dev@gmail.com"
         },
         "license": {
             "name": "Apache 2.0",

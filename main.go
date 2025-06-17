@@ -19,8 +19,8 @@ import (
 //	@termsOfService	http://swagger.io/terms/
 
 //	@contact.name	API Support
-//	@contact.url	https://necmettincimen.com.tr
-//	@contact.email	mail@necmettincimen.com.tr
+//	@contact.url	https://necmettincimen.github.io
+//	@contact.email	necmettin.dev@gmail.com
 
 //	@license.name	Apache 2.0
 //	@license.url	http://www.apache.org/licenses/LICENSE-2.0.html
