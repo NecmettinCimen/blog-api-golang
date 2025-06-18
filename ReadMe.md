@@ -1,4 +1,3 @@
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -17,7 +16,7 @@
 <h3 align="center">blog-api-golang</h3>
 
   <p align="center">
-    Developer Content Managment Api
+    Blog API with JWT authentication, PostgreSQL database, and Swagger documentation
     <br />
     <a href="https://github.com/necmettincimen/blog-api-golang"><strong>Explore the docs »</strong></a>
     <br />
@@ -64,11 +63,13 @@
 
 <img src="swagger_content.png" alt="blog-api-golang Screen Shot" >
 
-Developer Content Managment Api
+Blog API with JWT authentication, PostgreSQL database, and Swagger documentation
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
 ### Built With
+
+**Technologies:** `go` `gin` `postgresql` `gorm` `jwt` `swagger` `docker`
 
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [Net Core](https://github.com/dotnet/core)
